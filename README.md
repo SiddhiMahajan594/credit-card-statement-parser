@@ -1,22 +1,27 @@
-# Credit Card Statement Parser
+# 💳 Credit Card Statement Parser
 
-Rule-based PDF parser with OCR fallback for extracting:
-- Issuer
-- Card last 4 digits
-- Statement period (start–end)
-- Payment due date
-- Total/New balance
+A Python-based PDF parser that extracts key financial data from credit card statements across 5 major issuers.
 
-Optional: transactions table extraction via Camelot (vector PDFs).
+## 🧭 Features
+- Supports **Chase, Amex, Citi, Bank of America, Capital One**
+- Extracts:
+  - Issuer  
+  - Card last 4 digits  
+  - Statement period  
+  - Payment due date  
+  - Total / new balance  
+- OCR fallback for scanned statements  
+- Streamlit UI for demo + JSON export  
+- Modular design for issuer-specific parsing  
 
-## Quickstart
+## 🧰 Tech Stack
+**Python, pdfplumber, pytesseract, regex, pandas, dateutil, Streamlit**
+
+## ⚙️ How to Run
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
-
-# Parse a PDF
-python -m credit_parser.cli samples/your_statement.pdf
-
-# With transactions (requires camelot deps)
-python -m credit_parser.cli samples/your_statement.pdf --transactions
+python make_sample_statement.py
+streamlit run streamlit_app.py
